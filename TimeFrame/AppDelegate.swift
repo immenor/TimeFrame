@@ -11,20 +11,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let router: NavigationRouter = NavigationRouter(navigationController: navController)
         self.init(router: router)
     }
-    
+
     init(router: Router) {
         self.router = router
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
         window = UIWindow()
         window?.rootViewController = router?.rootNavigationController
         window?.backgroundColor = UIColor.white
         router?.setupRootViewController()
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 }
-
