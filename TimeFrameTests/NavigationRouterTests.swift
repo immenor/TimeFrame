@@ -8,7 +8,7 @@ class NavigationRouterTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        router = NavigationRouter(navigationController: UINavigationController())
+        router = NavigationRouter(navigationController: UINavigationController(), animated: false)
         configureUIWindowWithRootViewController()
         router.setupRootViewController()
     }
@@ -32,6 +32,16 @@ class NavigationRouterTests: XCTestCase {
         router.dismissModal()
         RunLoop.advance(by: 1)
         expect(self.router.rootNavigationController.presentedViewController).to(beNil())
+    }
+
+    func test_showTimeZoneSelectionTable() {
+        let navCtrl = UINavigationController()
+        router.showTimeZoneSelectionTable(navCtrl: navCtrl)
+        expect(navCtrl.topViewController).to(
+            beAnInstanceOf(
+                TimeZoneSelectionTableViewController.self
+            )
+        )
     }
 
     private func configureUIWindowWithRootViewController() {

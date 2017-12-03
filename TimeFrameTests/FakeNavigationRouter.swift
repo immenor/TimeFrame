@@ -23,4 +23,9 @@ class FakeNavigationRouter: Router {
     func dismissModal() {
         dismissModal_wasCalled = true
     }
+
+    var showTimezoneSelectionTable_arg: UINavigationController!
+    func showTimeZoneSelectionTable(navCtrl: UINavigationController) {
+        showTimezoneSelectionTable_arg = navCtrl
+    }
 }

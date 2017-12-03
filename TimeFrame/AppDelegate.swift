@@ -8,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     convenience override init() {
         let navController = UINavigationController()
-        let router: NavigationRouter = NavigationRouter(navigationController: navController)
+        let router: NavigationRouter = NavigationRouter(navigationController: navController, animated: true)
         self.init(router: router)
     }
 

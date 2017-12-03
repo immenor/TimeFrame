@@ -6,14 +6,17 @@ protocol Router {
     func setupRootViewController()
     func showCreatePersonModal()
     func dismissModal()
+    func showTimeZoneSelectionTable(navCtrl: UINavigationController)
 }
 
 class NavigationRouter: NSObject, Router {
     var rootNavigationController: UINavigationController
     var rootViewController: SummaryViewController?
+    var isAnimated: Bool
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, animated: Bool) {
         rootNavigationController = navigationController
+        isAnimated = animated
     }
 
     func setupRootViewController() {
@@ -30,12 +33,21 @@ class NavigationRouter: NSObject, Router {
 
         rootNavigationController.present(
             navCtrl,
-            animated: true,
+            animated: isAnimated,
             completion: nil
         )
     }
 
     func dismissModal() {
         rootNavigationController.dismiss(animated: true, completion: nil)
+    }
+
+    func showTimeZoneSelectionTable(navCtrl: UINavigationController) {
+        let timeZoneSelectionTable = TimeZoneSelectionTableViewController(style: .plain)
+
+        navCtrl.pushViewController(
+            timeZoneSelectionTable,
+            animated: isAnimated
+        )
     }
 }

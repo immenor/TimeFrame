@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B19E0D571FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */; };
 		B1B113541FD272F700F4998E /* SummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */; };
 		B1B113561FD278A400F4998E /* CreatePersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B113551FD278A400F4998E /* CreatePersonViewController.swift */; };
 		B1B40B7A1FCA9025008222AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B40B791FCA9025008222AC /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneSelectionTableViewController.swift; sourceTree = "<group>"; };
 		B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewControllerTests.swift; sourceTree = "<group>"; };
 		B1B113551FD278A400F4998E /* CreatePersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonViewController.swift; sourceTree = "<group>"; };
 		B1B40B761FCA9025008222AC /* TimeFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 				B1B40B851FCA9026008222AC /* Info.plist */,
 				B1B40BA21FCA9435008222AC /* NavigationRouter.swift */,
 				B1B113551FD278A400F4998E /* CreatePersonViewController.swift */,
+				B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */,
 			);
 			path = TimeFrame;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				B1B40B7A1FCA9025008222AC /* AppDelegate.swift in Sources */,
 				B1B113561FD278A400F4998E /* CreatePersonViewController.swift in Sources */,
 				B1B40BA31FCA9435008222AC /* NavigationRouter.swift in Sources */,
+				B19E0D571FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
