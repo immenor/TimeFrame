@@ -64,7 +64,13 @@ class CreatePersonViewController: UIViewController {
 
     @objc func showTimeZoneSelectionTable() {
         if let navCtrl = navigationController {
-            router.showTimeZoneSelectionTable(navCtrl: navCtrl)
+            router.showTimeZoneSelectionTable(navCtrl: navCtrl, delegate: self)
         }
+    }
+}
+
+extension CreatePersonViewController: AddTimeZoneDelegate {
+    func add(timezone: TimeZone) {
+        // I have a timezone now
     }
 }

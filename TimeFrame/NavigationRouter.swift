@@ -6,7 +6,8 @@ protocol Router {
     func setupRootViewController()
     func showCreatePersonModal()
     func dismissModal()
-    func showTimeZoneSelectionTable(navCtrl: UINavigationController)
+    func showTimeZoneSelectionTable(navCtrl: UINavigationController, delegate: AddTimeZoneDelegate)
+    func popViewController(with navCtr: UINavigationController)
 }
 
 class NavigationRouter: NSObject, Router {
@@ -38,12 +39,19 @@ class NavigationRouter: NSObject, Router {
         )
     }
 
+    func popViewController(with navCtr: UINavigationController) {
+        navCtr.popViewController(animated: isAnimated)
+    }
+
     func dismissModal() {
         rootNavigationController.dismiss(animated: true, completion: nil)
     }
 
-    func showTimeZoneSelectionTable(navCtrl: UINavigationController) {
-        let timeZoneSelectionTable = TimeZoneSelectionTableViewController(style: .plain)
+    func showTimeZoneSelectionTable(navCtrl: UINavigationController, delegate: AddTimeZoneDelegate) {
+        let timeZoneSelectionTable = TimeZoneSelectionTableViewController(
+            router: self,
+            addTimeZoneDelegate: delegate
+        )
 
         navCtrl.pushViewController(
             timeZoneSelectionTable,

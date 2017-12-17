@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B114BACD1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114BACC1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift */; };
 		B19E0D571FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */; };
 		B1B113541FD272F700F4998E /* SummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */; };
 		B1B113561FD278A400F4998E /* CreatePersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B113551FD278A400F4998E /* CreatePersonViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B114BACC1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimezoneSelectionTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneSelectionTableViewController.swift; sourceTree = "<group>"; };
 		B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewControllerTests.swift; sourceTree = "<group>"; };
 		B1B113551FD278A400F4998E /* CreatePersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				B1B40BA71FCA9FFE008222AC /* FakeNavigationRouter.swift */,
 				B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */,
 				B1EF38F11FD2818200D6301D /* CreatePersonViewControllerTests.swift */,
+				B114BACC1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift */,
 			);
 			path = TimeFrameTests;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				B1B40BA11FCA93B2008222AC /* NavigationRouterTests.swift in Sources */,
 				B1B40BA81FCA9FFE008222AC /* FakeNavigationRouter.swift in Sources */,
 				B1B113541FD272F700F4998E /* SummaryViewControllerTests.swift in Sources */,
+				B114BACD1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift in Sources */,
 				B1B40B8F1FCA9026008222AC /* AppDelegateTests.swift in Sources */,
 				B1EF38F21FD2818200D6301D /* CreatePersonViewControllerTests.swift in Sources */,
 			);

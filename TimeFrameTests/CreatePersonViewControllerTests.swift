@@ -40,6 +40,6 @@ class CreatePersonViewControllerTests: XCTestCase {
     func test_showTimeZoneSelectionTableView() {
         let button = createPersonViewController.setTimeZoneButton
         button.sendActions(for: .touchUpInside)
-        expect(self.fakeNavRouter.showTimezoneSelectionTable_arg).to(equal(createPersonViewController.navigationController))
+        expect(self.fakeNavRouter.showTimeZoneSelectionTable_arg).to(equal(createPersonViewController.navigationController))
     }
 }

@@ -24,8 +24,15 @@ class FakeNavigationRouter: Router {
         dismissModal_wasCalled = true
     }
 
-    var showTimezoneSelectionTable_arg: UINavigationController!
-    func showTimeZoneSelectionTable(navCtrl: UINavigationController) {
-        showTimezoneSelectionTable_arg = navCtrl
+    var showTimeZoneSelectionTable_arg: UINavigationController!
+    var showTimeZoneSelectionTable_argTwo: AddTimeZoneDelegate!
+    func showTimeZoneSelectionTable(navCtrl: UINavigationController, delegate: AddTimeZoneDelegate) {
+        showTimeZoneSelectionTable_arg = navCtrl
+        showTimeZoneSelectionTable_argTwo = delegate
+    }
+
+    var popViewController_arg: UINavigationController!
+    func popViewController(with navCtr: UINavigationController) {
+        popViewController_arg = navCtr
     }
 }
