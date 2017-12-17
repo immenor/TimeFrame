@@ -71,6 +71,7 @@ class CreatePersonViewController: UIViewController {
 
 extension CreatePersonViewController: AddTimeZoneDelegate {
     func add(timezone: TimeZone) {
-        // I have a timezone now
+        let tzName = timezone.identifier
+        setTimeZoneButton.setTitle(tzName, for: .normal)
     }
 }

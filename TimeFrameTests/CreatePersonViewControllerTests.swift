@@ -42,4 +42,9 @@ class CreatePersonViewControllerTests: XCTestCase {
         button.sendActions(for: .touchUpInside)
         expect(self.fakeNavRouter.showTimeZoneSelectionTable_arg).to(equal(createPersonViewController.navigationController))
     }
+
+    func test_updatesButtonWhenAddingTimezone() {
+        createPersonViewController.add(timezone: TimeZone(abbreviation: "JST")!)
+        expect(self.createPersonViewController.setTimeZoneButton.titleLabel?.text).to(equal("Asia/Tokyo"))
+    }
 }
