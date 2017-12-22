@@ -14,6 +14,11 @@ class CreatePersonViewControllerTests: XCTestCase {
         createPersonViewController.view.setNeedsLayout()
     }
 
+    func test_tableViewHasDelegateAndDataSource() {
+        expect(self.createPersonViewController.tableView.delegate).to(be(self.createPersonViewController))
+        expect(self.createPersonViewController.tableView.dataSource).to(be(self.createPersonViewController))
+    }
+
     func test_navBarHasCancelAction() {
         let leftAction = createPersonViewController.navigationItem.leftBarButtonItem
         expect(leftAction?.action?.description).to(equal("cancel"))
@@ -26,25 +31,36 @@ class CreatePersonViewControllerTests: XCTestCase {
     }
 
     func test_viewControllerHasNameInputField() {
-        let nameTextField = createPersonViewController.nameTextField
-        expect(nameTextField).toNot(beNil())
-        expect(nameTextField).to(beAnInstanceOf(UITextField.self))
+        let nameCell = createPersonViewController.tableView(
+            createPersonViewController.tableView,
+            cellForRowAt: IndexPath(row: 0, section: 0)
+        )
+
+        expect(nameCell).to(beAnInstanceOf(InputTextTableViewCell.self))
     }
 
     func test_hasButtonToSetTimeZone() {
-        let button = createPersonViewController.setTimeZoneButton
-        expect(button).toNot(beNil())
-        expect(button).to(beAnInstanceOf(UIButton.self))
+        let buttonCell = createPersonViewController.tableView(
+            createPersonViewController.tableView,
+            cellForRowAt: IndexPath(row: 0, section: 1)
+        )
+        expect(buttonCell).to(beAnInstanceOf(UITableViewCell.self))
     }
 
     func test_showTimeZoneSelectionTableView() {
-        let button = createPersonViewController.setTimeZoneButton
-        button.sendActions(for: .touchUpInside)
+        createPersonViewController.tableView(
+            createPersonViewController.tableView,
+            didSelectRowAt: IndexPath(row: 0, section: 1)
+        )
         expect(self.fakeNavRouter.showTimeZoneSelectionTable_arg).to(equal(createPersonViewController.navigationController))
     }
 
     func test_updatesButtonWhenAddingTimezone() {
         createPersonViewController.add(timezone: TimeZone(abbreviation: "JST")!)
-        expect(self.createPersonViewController.setTimeZoneButton.titleLabel?.text).to(equal("Asia/Tokyo"))
+        let buttonCell = createPersonViewController.tableView(
+            createPersonViewController.tableView,
+            cellForRowAt: IndexPath(row: 0, section: 1)
+        )
+        expect(buttonCell.textLabel?.text).to(equal("Asia/Tokyo"))
     }
 }
