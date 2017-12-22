@@ -6,11 +6,20 @@ import Nimble
 class AppDelegateTests: XCTestCase {
     var appDelegate: AppDelegate!
     var router: FakeNavigationRouter!
+    var fakeAppearanceManager: FakeAppearanceManager!
     override func setUp() {
         super.setUp()
         self.router = FakeNavigationRouter()
-        self.appDelegate = AppDelegate(router: router)
+        self.fakeAppearanceManager = FakeAppearanceManager()
+        self.appDelegate = AppDelegate(
+            router: router,
+            appearenceManager: fakeAppearanceManager
+        )
         _ = self.appDelegate.application(UIApplication.shared, didFinishLaunchingWithOptions: [:])
+    }
+
+    func test_configuresAppearanceOnLoad() {
+        expect(self.fakeAppearanceManager.setupAppearanceWasCalled).to(beTrue())
     }
 
     func test_hasRootViewController() {

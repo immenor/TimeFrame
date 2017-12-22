@@ -31,6 +31,7 @@ class TimeZoneSelectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "timezone")
         cell.textLabel?.text = timezones[indexPath.row]
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
 

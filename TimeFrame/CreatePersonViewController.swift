@@ -24,7 +24,6 @@ class CreatePersonViewController: UIViewController {
     }
 
     private func setupViews() {
-        view.backgroundColor = UIColor.groupTableViewBackground
         tableView.register(InputTextTableViewCell.self, forCellReuseIdentifier: "inputNameCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "setTimezoneCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +89,7 @@ extension CreatePersonViewController: UITableViewDataSource {
         } else {
             cell.textLabel?.text = "Set Timezone"
         }
-        cell.textLabel?.textColor = UIColor.blue
+        cell.textLabel?.textColor = UIColor(red:0.55, green:0.76, blue:1.00, alpha:1.0)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         return cell
     }
