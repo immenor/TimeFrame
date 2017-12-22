@@ -18,6 +18,9 @@ struct MainAppearanceManager: AppearanceManager {
         let tableViewCell = UITableViewCell.appearance()
         tableViewCell.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:1.0)
         tableViewCell.textLabel?.textColor = UIColor.white
+        let selectionBackground = UIView()
+        selectionBackground.backgroundColor = UIColor.darkGray
+        tableViewCell.selectedBackgroundView = selectionBackground
 
         UIWindow.appearance().backgroundColor = UIColor.black
     }
