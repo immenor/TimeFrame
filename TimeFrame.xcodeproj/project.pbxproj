@@ -97,10 +97,10 @@
 		B1B40B6D1FCA9025008222AC = {
 			isa = PBXGroup;
 			children = (
+				B1B40B991FCA91AF008222AC /* Frameworks */,
+				B1B40B771FCA9025008222AC /* Products */,
 				B1B40B781FCA9025008222AC /* TimeFrame */,
 				B1B40B8D1FCA9026008222AC /* TimeFrameTests */,
-				B1B40B771FCA9025008222AC /* Products */,
-				B1B40B991FCA91AF008222AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,15 +117,15 @@
 			isa = PBXGroup;
 			children = (
 				B1B40B791FCA9025008222AC /* AppDelegate.swift */,
-				B1B40B7B1FCA9026008222AC /* SummaryViewController.swift */,
-				B1B40B801FCA9026008222AC /* Assets.xcassets */,
-				B1B40B821FCA9026008222AC /* LaunchScreen.storyboard */,
-				B1B40B851FCA9026008222AC /* Info.plist */,
-				B1B40BA21FCA9435008222AC /* NavigationRouter.swift */,
-				B1B113551FD278A400F4998E /* CreatePersonViewController.swift */,
-				B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */,
-				B1A29E641FECF9060016C61F /* InputTextTableViewCell.swift */,
 				B1A29E661FED207D0016C61F /* AppearanceManager.swift */,
+				B1B40B801FCA9026008222AC /* Assets.xcassets */,
+				B1B113551FD278A400F4998E /* CreatePersonViewController.swift */,
+				B1B40B851FCA9026008222AC /* Info.plist */,
+				B1A29E641FECF9060016C61F /* InputTextTableViewCell.swift */,
+				B1B40B821FCA9026008222AC /* LaunchScreen.storyboard */,
+				B1B40BA21FCA9435008222AC /* NavigationRouter.swift */,
+				B1B40B7B1FCA9026008222AC /* SummaryViewController.swift */,
+				B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */,
 			);
 			path = TimeFrame;
 			sourceTree = "<group>";
@@ -134,13 +134,13 @@
 			isa = PBXGroup;
 			children = (
 				B1B40B8E1FCA9026008222AC /* AppDelegateTests.swift */,
+				B1EF38F11FD2818200D6301D /* CreatePersonViewControllerTests.swift */,
+				B1A29E681FED21790016C61F /* FakeAppearanceManager.swift */,
+				B1B40BA71FCA9FFE008222AC /* FakeNavigationRouter.swift */,
 				B1B40B901FCA9026008222AC /* Info.plist */,
 				B1B40BA01FCA93B2008222AC /* NavigationRouterTests.swift */,
-				B1B40BA71FCA9FFE008222AC /* FakeNavigationRouter.swift */,
 				B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */,
-				B1EF38F11FD2818200D6301D /* CreatePersonViewControllerTests.swift */,
 				B114BACC1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift */,
-				B1A29E681FED21790016C61F /* FakeAppearanceManager.swift */,
 			);
 			path = TimeFrameTests;
 			sourceTree = "<group>";
@@ -164,6 +164,7 @@
 				B1B40B721FCA9025008222AC /* Sources */,
 				B1B40B731FCA9025008222AC /* Frameworks */,
 				B1B40B741FCA9025008222AC /* Resources */,
+				B1A29E6B1FEDE0DC0016C61F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -238,8 +239,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1B40B841FCA9026008222AC /* LaunchScreen.storyboard in Resources */,
 				B1B40B811FCA9026008222AC /* Assets.xcassets in Resources */,
+				B1B40B841FCA9026008222AC /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,17 +253,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B1A29E6B1FEDE0DC0016C61F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1B40B721FCA9025008222AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1A29E671FED207D0016C61F /* AppearanceManager.swift in Sources */,
-				B1B40B7C1FCA9026008222AC /* SummaryViewController.swift in Sources */,
-				B1A29E651FECF9060016C61F /* InputTextTableViewCell.swift in Sources */,
 				B1B40B7A1FCA9025008222AC /* AppDelegate.swift in Sources */,
+				B1A29E671FED207D0016C61F /* AppearanceManager.swift in Sources */,
 				B1B113561FD278A400F4998E /* CreatePersonViewController.swift in Sources */,
+				B1A29E651FECF9060016C61F /* InputTextTableViewCell.swift in Sources */,
 				B1B40BA31FCA9435008222AC /* NavigationRouter.swift in Sources */,
+				B1B40B7C1FCA9026008222AC /* SummaryViewController.swift in Sources */,
 				B19E0D571FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,13 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1B40BA11FCA93B2008222AC /* NavigationRouterTests.swift in Sources */,
-				B1B40BA81FCA9FFE008222AC /* FakeNavigationRouter.swift in Sources */,
-				B1B113541FD272F700F4998E /* SummaryViewControllerTests.swift in Sources */,
-				B114BACD1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift in Sources */,
 				B1B40B8F1FCA9026008222AC /* AppDelegateTests.swift in Sources */,
 				B1EF38F21FD2818200D6301D /* CreatePersonViewControllerTests.swift in Sources */,
 				B1A29E691FED21790016C61F /* FakeAppearanceManager.swift in Sources */,
+				B1B40BA81FCA9FFE008222AC /* FakeNavigationRouter.swift in Sources */,
+				B1B40BA11FCA93B2008222AC /* NavigationRouterTests.swift in Sources */,
+				B1B113541FD272F700F4998E /* SummaryViewControllerTests.swift in Sources */,
+				B114BACD1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

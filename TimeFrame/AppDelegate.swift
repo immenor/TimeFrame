@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.appearenceManager = appearenceManager
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+    ) -> Bool {
         window = UIWindow()
         window?.rootViewController = router?.rootNavigationController
         window?.backgroundColor = UIColor.white
