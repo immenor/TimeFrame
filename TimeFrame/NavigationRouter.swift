@@ -29,7 +29,10 @@ class NavigationRouter: NSObject, Router {
     }
 
     func showCreatePersonModal() {
-        let modal = CreatePersonViewController(router : self)
+        let modal = CreatePersonViewController(
+            router : self,
+            cellFactory: DefaultTableViewCellFactory()
+        )
         let navCtrl = UINavigationController(rootViewController: modal)
 
         rootNavigationController.present(

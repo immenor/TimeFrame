@@ -5,11 +5,17 @@ import Nimble
 class CreatePersonViewControllerTests: XCTestCase {
     var createPersonViewController: CreatePersonViewController!
     var fakeNavRouter = FakeNavigationRouter()
+    var fakeCellFactory = FakeTableViewCellFactory()
 
     override func setUp() {
         super.setUp()
-
-        createPersonViewController = CreatePersonViewController(router: fakeNavRouter)
+        fakeCellFactory.textFieldCell_returnValue = TextFieldTableViewCell()
+        fakeCellFactory.addAvailabilityCell_returnValue = UITableViewCell()
+        fakeCellFactory.setLocationCell_returnValue = UITableViewCell()
+        createPersonViewController = CreatePersonViewController(
+            router: fakeNavRouter,
+            cellFactory: fakeCellFactory
+        )
         _ = UINavigationController(rootViewController: createPersonViewController)
         createPersonViewController.view.setNeedsLayout()
     }
@@ -36,20 +42,14 @@ class CreatePersonViewControllerTests: XCTestCase {
     }
 
     func test_viewControllerHasNameInputField() {
-        let nameCell = createPersonViewController.tableView(
-            createPersonViewController.tableView,
-            cellForRowAt: IndexPath(row: 0, section: 0)
-        )
-
-        expect(nameCell).to(beAnInstanceOf(TextFieldTableViewCell.self))
+        _ = createPersonViewController.tableView(createPersonViewController.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        expect(self.fakeCellFactory.textFieldCell_arg).to(equal("inputNameCell"))
     }
 
     func test_hasButtonToSetTimeZone() {
-        let buttonCell = createPersonViewController.tableView(
-            createPersonViewController.tableView,
-            cellForRowAt: IndexPath(row: 0, section: 1)
-        )
-        expect(buttonCell).to(beAnInstanceOf(UITableViewCell.self))
+        _ = createPersonViewController.tableView(createPersonViewController.tableView, cellForRowAt: IndexPath(row: 0, section: 2))
+        expect(self.fakeCellFactory.setLocationCell_firstArg).to(equal("setTimezoneCell"))
+        expect(self.fakeCellFactory.setLocationCell_secondArg).to(beNil())
     }
 
     func test_showTimeZoneSelectionTableView() {
@@ -57,16 +57,16 @@ class CreatePersonViewControllerTests: XCTestCase {
             createPersonViewController.tableView,
             didSelectRowAt: IndexPath(row: 0, section: 2)
         )
-        expect(self.fakeNavRouter.showTimeZoneSelectionTable_arg).to(equal(createPersonViewController.navigationController))
+        expect(self.fakeNavRouter.showTimeZoneSelectionTable_arg).to(
+            equal(createPersonViewController.navigationController)
+        )
     }
 
     func test_updatesButtonWhenAddingTimezone() {
         createPersonViewController.add(timezone: TimeZone(abbreviation: "JST")!)
-        let buttonCell = createPersonViewController.tableView(
-            createPersonViewController.tableView,
-            cellForRowAt: IndexPath(row: 0, section: 2)
-        )
-        expect(buttonCell.textLabel?.text).to(equal("Asia/Tokyo"))
+        _ = createPersonViewController.tableView(createPersonViewController.tableView, cellForRowAt: IndexPath(row: 0, section: 2))
+        expect(self.fakeCellFactory.setLocationCell_firstArg).to(equal("setTimezoneCell"))
+        expect(self.fakeCellFactory.setLocationCell_secondArg).to(equal("Asia/Tokyo"))
     }
 
     func test_displaysCorrectHeaderTitles() {
@@ -79,10 +79,7 @@ class CreatePersonViewControllerTests: XCTestCase {
     }
 
     func test_displaysAddAvailabilityWhenNoneAreAdded() {
-        let row = createPersonViewController.tableView(
-            createPersonViewController.tableView,
-            cellForRowAt: IndexPath(row: 0, section: 1)
-        )
-        expect(row.textLabel?.text).to(equal("Add Availability"))
+        _ = createPersonViewController.tableView(createPersonViewController.tableView, cellForRowAt: IndexPath(row: 0, section: 1))
+        expect(self.fakeCellFactory.addAvailabilityCell_arg).to(equal("availabilityCell"))
     }
 }
