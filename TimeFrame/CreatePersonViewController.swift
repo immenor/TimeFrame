@@ -26,6 +26,7 @@ class CreatePersonViewController: UIViewController {
     private func setupViews() {
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "inputNameCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "setTimezoneCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "availabilityCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
     }
@@ -60,12 +61,12 @@ class CreatePersonViewController: UIViewController {
 
 extension CreatePersonViewController: UITableViewDataSource {
     enum Section: Int {
-        case InputName, SetTimezone
-        static let count = 2
+        case Name, Availability, Location
+        static let count = 3
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return Section.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,12 +75,27 @@ extension CreatePersonViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case Section.InputName.rawValue:
+        case Section.Name.rawValue:
             return TextFieldTableViewCell(style: .default, reuseIdentifier: "inputNameCell")
-        case Section.SetTimezone.rawValue:
+        case Section.Availability.rawValue:
+            return setupAddAvailabilityCell()
+        case Section.Location.rawValue:
             return setupSetTimezoneCell()
         default:
             return UITableViewCell()
+        }
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case Section.Name.rawValue:
+            return "Name"
+        case Section.Availability.rawValue:
+            return "Availability"
+        case Section.Location.rawValue:
+            return "Location"
+        default:
+            return ""
         }
     }
 
@@ -94,12 +110,20 @@ extension CreatePersonViewController: UITableViewDataSource {
         cell.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         return cell
     }
+
+    private func setupAddAvailabilityCell() -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "availabilityCell")
+        cell.textLabel?.textColor = UIColor(red:0.55, green:0.76, blue:1.00, alpha:1.0)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        cell.textLabel?.text = "Add Availability"
+        return cell
+    }
 }
 
 extension CreatePersonViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case Section.SetTimezone.rawValue:
+        case Section.Location.rawValue:
             if let navCtrl = navigationController {
                 router.showTimeZoneSelectionTable(navCtrl: navCtrl, delegate: self)
             }
