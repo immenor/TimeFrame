@@ -36,7 +36,7 @@ class CreatePersonViewControllerTests: XCTestCase {
             cellForRowAt: IndexPath(row: 0, section: 0)
         )
 
-        expect(nameCell).to(beAnInstanceOf(InputTextTableViewCell.self))
+        expect(nameCell).to(beAnInstanceOf(TextFieldTableViewCell.self))
     }
 
     func test_hasButtonToSetTimeZone() {

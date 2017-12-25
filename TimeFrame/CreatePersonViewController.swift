@@ -24,7 +24,7 @@ class CreatePersonViewController: UIViewController {
     }
 
     private func setupViews() {
-        tableView.register(InputTextTableViewCell.self, forCellReuseIdentifier: "inputNameCell")
+        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "inputNameCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "setTimezoneCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -41,6 +41,7 @@ class CreatePersonViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 44
         tableView.reloadData()
     }
 
@@ -74,7 +75,7 @@ extension CreatePersonViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case Section.InputName.rawValue:
-            return InputTextTableViewCell(style: .default, reuseIdentifier: "inputNameCell")
+            return TextFieldTableViewCell(style: .default, reuseIdentifier: "inputNameCell")
         case Section.SetTimezone.rawValue:
             return setupSetTimezoneCell()
         default:

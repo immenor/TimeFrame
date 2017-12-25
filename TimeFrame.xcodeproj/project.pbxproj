@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B114BACD1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114BACC1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift */; };
+		B121FBAA1FF1752100C123F1 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B121FBA91FF1752100C123F1 /* TextFieldTableViewCell.swift */; };
+		B121FBAD1FF1756A00C123F1 /* TextFieldTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B121FBAB1FF1755000C123F1 /* TextFieldTableViewCellTests.swift */; };
 		B19E0D571FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */; };
-		B1A29E651FECF9060016C61F /* InputTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A29E641FECF9060016C61F /* InputTextTableViewCell.swift */; };
 		B1A29E671FED207D0016C61F /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A29E661FED207D0016C61F /* AppearanceManager.swift */; };
 		B1A29E691FED21790016C61F /* FakeAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A29E681FED21790016C61F /* FakeAppearanceManager.swift */; };
 		B1B113541FD272F700F4998E /* SummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */; };
@@ -52,8 +53,9 @@
 
 /* Begin PBXFileReference section */
 		B114BACC1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimezoneSelectionTableViewControllerTests.swift; sourceTree = "<group>"; };
+		B121FBA91FF1752100C123F1 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		B121FBAB1FF1755000C123F1 /* TextFieldTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCellTests.swift; sourceTree = "<group>"; };
 		B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneSelectionTableViewController.swift; sourceTree = "<group>"; };
-		B1A29E641FECF9060016C61F /* InputTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextTableViewCell.swift; sourceTree = "<group>"; };
 		B1A29E661FED207D0016C61F /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		B1A29E681FED21790016C61F /* FakeAppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppearanceManager.swift; sourceTree = "<group>"; };
 		B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewControllerTests.swift; sourceTree = "<group>"; };
@@ -121,10 +123,10 @@
 				B1B40B801FCA9026008222AC /* Assets.xcassets */,
 				B1B113551FD278A400F4998E /* CreatePersonViewController.swift */,
 				B1B40B851FCA9026008222AC /* Info.plist */,
-				B1A29E641FECF9060016C61F /* InputTextTableViewCell.swift */,
 				B1B40B821FCA9026008222AC /* LaunchScreen.storyboard */,
 				B1B40BA21FCA9435008222AC /* NavigationRouter.swift */,
 				B1B40B7B1FCA9026008222AC /* SummaryViewController.swift */,
+				B121FBA91FF1752100C123F1 /* TextFieldTableViewCell.swift */,
 				B19E0D561FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift */,
 			);
 			path = TimeFrame;
@@ -140,6 +142,7 @@
 				B1B40B901FCA9026008222AC /* Info.plist */,
 				B1B40BA01FCA93B2008222AC /* NavigationRouterTests.swift */,
 				B1B113531FD272F700F4998E /* SummaryViewControllerTests.swift */,
+				B121FBAB1FF1755000C123F1 /* TextFieldTableViewCellTests.swift */,
 				B114BACC1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift */,
 			);
 			path = TimeFrameTests;
@@ -277,9 +280,9 @@
 				B1B40B7A1FCA9025008222AC /* AppDelegate.swift in Sources */,
 				B1A29E671FED207D0016C61F /* AppearanceManager.swift in Sources */,
 				B1B113561FD278A400F4998E /* CreatePersonViewController.swift in Sources */,
-				B1A29E651FECF9060016C61F /* InputTextTableViewCell.swift in Sources */,
 				B1B40BA31FCA9435008222AC /* NavigationRouter.swift in Sources */,
 				B1B40B7C1FCA9026008222AC /* SummaryViewController.swift in Sources */,
+				B121FBAA1FF1752100C123F1 /* TextFieldTableViewCell.swift in Sources */,
 				B19E0D571FD3D705001F1FA7 /* TimeZoneSelectionTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +297,7 @@
 				B1B40BA81FCA9FFE008222AC /* FakeNavigationRouter.swift in Sources */,
 				B1B40BA11FCA93B2008222AC /* NavigationRouterTests.swift in Sources */,
 				B1B113541FD272F700F4998E /* SummaryViewControllerTests.swift in Sources */,
+				B121FBAD1FF1756A00C123F1 /* TextFieldTableViewCellTests.swift in Sources */,
 				B114BACD1FE6844500137902 /* TimezoneSelectionTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
