@@ -50,10 +50,12 @@ class CreatePersonViewController: UIViewController {
 
     private func setupConstraints() {
         let safeLayout = view.safeAreaLayoutGuide
-        tableView.topAnchor.constraint(equalTo: safeLayout.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: safeLayout.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: safeLayout.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeLayout.bottomAnchor)
+        ])
     }
 
     @objc func cancel() {
@@ -63,7 +65,7 @@ class CreatePersonViewController: UIViewController {
 
 extension CreatePersonViewController: UITableViewDataSource {
     enum Section: Int {
-        case Name, Availability, Location
+        case name, availability, location
         static let count = 3
     }
 
@@ -77,11 +79,11 @@ extension CreatePersonViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case Section.Name.rawValue:
+        case Section.name.rawValue:
             return cellFactory.textFieldCell(identifier: "inputNameCell")
-        case Section.Availability.rawValue:
+        case Section.availability.rawValue:
             return cellFactory.addAvailabilityCell(identifier: "availabilityCell")
-        case Section.Location.rawValue:
+        case Section.location.rawValue:
             return cellFactory.setLocationCell(identifier: "setTimezoneCell", timezone: selectedTimeZone)
         default:
             return UITableViewCell()
@@ -90,11 +92,11 @@ extension CreatePersonViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case Section.Name.rawValue:
+        case Section.name.rawValue:
             return "Name"
-        case Section.Availability.rawValue:
+        case Section.availability.rawValue:
             return "Availability"
-        case Section.Location.rawValue:
+        case Section.location.rawValue:
             return "Location"
         default:
             return ""
@@ -105,7 +107,7 @@ extension CreatePersonViewController: UITableViewDataSource {
 extension CreatePersonViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case Section.Location.rawValue:
+        case Section.location.rawValue:
             if let navCtrl = navigationController {
                 router.showTimeZoneSelectionTable(navCtrl: navCtrl, delegate: self)
             }

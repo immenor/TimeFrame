@@ -23,9 +23,12 @@ class TextFieldTableViewCell: UITableViewCell {
 
     private func setupConstraints() {
         let margins = contentView.layoutMarginsGuide
-        textField.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        textField.leftAnchor.constraint(equalTo: margins.leftAnchor).isActive = true
-        textField.rightAnchor.constraint(equalTo: margins.rightAnchor).isActive = true
-        textField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalTo: contentView.topAnchor),
+            textField.leftAnchor.constraint(equalTo: margins.leftAnchor),
+            textField.rightAnchor.constraint(equalTo: margins.rightAnchor),
+            textField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 }

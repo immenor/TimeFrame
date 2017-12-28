@@ -24,9 +24,11 @@ class SummaryViewController: UIViewController {
         label.text = "hello"
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
-        label.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 16).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 16),
+            label.heightAnchor.constraint(equalToConstant: 20),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
 
     @objc func createPerson() {
