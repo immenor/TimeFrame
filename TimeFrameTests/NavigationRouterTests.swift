@@ -31,7 +31,7 @@ class NavigationRouterTests: XCTestCase {
         router.rootNavigationController.present(blankViewCtrl, animated: false) {}
         expect(self.router.rootNavigationController.presentedViewController).to(be(blankViewCtrl))
 
-        router.dismissModal()
+        router.dismissModal(from: router.rootNavigationController)
         RunLoop.advance(by: 1)
         expect(self.router.rootNavigationController.presentedViewController).to(beNil())
     }
@@ -50,6 +50,12 @@ class NavigationRouterTests: XCTestCase {
         router.showTimeZoneSelectionTable(navCtrl: router.rootNavigationController, delegate: fakeDelegate)
         router.popViewController(with: router.rootNavigationController)
         expect(self.router.rootNavigationController.topViewController).to(beAKindOf(SummaryViewController.self))
+    }
+
+    func test_showsAddAvailabilityViewController() {
+        router.showAddAvailability(navCtrl: router.rootNavigationController)
+        let presented = router.rootNavigationController.presentedViewController as! UINavigationController
+        expect(presented.topViewController).to(beAnInstanceOf(AddAvailabilityViewController.self))
     }
 
     private func configureUIWindowWithRootViewController() {

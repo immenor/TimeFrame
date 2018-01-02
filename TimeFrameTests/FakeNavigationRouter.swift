@@ -19,9 +19,9 @@ class FakeNavigationRouter: Router {
         showCreatePersonModal_wasCalled = true
     }
 
-    var dismissModal_wasCalled = false
-    func dismissModal() {
-        dismissModal_wasCalled = true
+    var dismissModal_arg: UINavigationController!
+    func dismissModal(from navCtrl: UINavigationController) {
+        dismissModal_arg = navCtrl
     }
 
     var showTimeZoneSelectionTable_arg: UINavigationController!
@@ -34,5 +34,10 @@ class FakeNavigationRouter: Router {
     var popViewController_arg: UINavigationController!
     func popViewController(with navCtr: UINavigationController) {
         popViewController_arg = navCtr
+    }
+
+    var showAddAvailability_arg: UINavigationController!
+    func showAddAvailability(navCtrl: UINavigationController) {
+        showAddAvailability_arg = navCtrl
     }
 }

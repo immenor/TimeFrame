@@ -59,7 +59,9 @@ class CreatePersonViewController: UIViewController {
     }
 
     @objc func cancel() {
-       router.dismissModal()
+        if let navCtrl = navigationController {
+            router.dismissModal(from: navCtrl)
+        }
     }
 }
 
@@ -110,6 +112,10 @@ extension CreatePersonViewController: UITableViewDelegate {
         case Section.location.rawValue:
             if let navCtrl = navigationController {
                 router.showTimeZoneSelectionTable(navCtrl: navCtrl, delegate: self)
+            }
+        case Section.availability.rawValue:
+            if let navCtrl = navigationController {
+                router.showAddAvailability(navCtrl: navCtrl)
             }
         default: break
         }

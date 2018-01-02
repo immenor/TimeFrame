@@ -5,9 +5,10 @@ protocol Router {
     var rootNavigationController: UINavigationController {get set}
     func setupRootViewController()
     func showCreatePersonModal()
-    func dismissModal()
+    func dismissModal(from navCtrl: UINavigationController)
     func showTimeZoneSelectionTable(navCtrl: UINavigationController, delegate: AddTimeZoneDelegate)
     func popViewController(with navCtr: UINavigationController)
+    func showAddAvailability(navCtrl: UINavigationController)
 }
 
 class NavigationRouter: NSObject, Router {
@@ -46,8 +47,8 @@ class NavigationRouter: NSObject, Router {
         navCtr.popViewController(animated: isAnimated)
     }
 
-    func dismissModal() {
-        rootNavigationController.dismiss(animated: true, completion: nil)
+    func dismissModal(from navCtrl: UINavigationController) {
+        navCtrl.dismiss(animated: true, completion: nil)
     }
 
     func showTimeZoneSelectionTable(navCtrl: UINavigationController, delegate: AddTimeZoneDelegate) {
@@ -60,5 +61,11 @@ class NavigationRouter: NSObject, Router {
             timeZoneSelectionTable,
             animated: isAnimated
         )
+    }
+
+    func showAddAvailability(navCtrl: UINavigationController) {
+        let modal = AddAvailabilityViewController(router: self)
+        let newNavCtrl = UINavigationController(rootViewController: modal)
+        navCtrl.present(newNavCtrl, animated: isAnimated, completion: nil)
     }
 }

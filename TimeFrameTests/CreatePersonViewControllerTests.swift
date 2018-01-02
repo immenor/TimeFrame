@@ -38,7 +38,7 @@ class CreatePersonViewControllerTests: XCTestCase {
     func test_leftActionDismissesModal() {
         let leftAction = createPersonViewController.navigationItem.leftBarButtonItem?.action
         createPersonViewController.perform(leftAction)
-        expect(self.fakeNavRouter.dismissModal_wasCalled).to(beTrue())
+        expect(self.fakeNavRouter.dismissModal_arg).to(be(createPersonViewController.navigationController))
     }
 
     func test_viewControllerHasNameInputField() {
@@ -81,5 +81,15 @@ class CreatePersonViewControllerTests: XCTestCase {
     func test_displaysAddAvailabilityWhenNoneAreAdded() {
         _ = createPersonViewController.tableView(createPersonViewController.tableView, cellForRowAt: IndexPath(row: 0, section: 1))
         expect(self.fakeCellFactory.addAvailabilityCell_arg).to(equal("availabilityCell"))
+    }
+
+    func test_showsAddAvailability() {
+        createPersonViewController.tableView(
+            createPersonViewController.tableView,
+            didSelectRowAt: IndexPath(row: 0, section: 1)
+        )
+        expect(self.fakeNavRouter.showAddAvailability_arg).to(
+            equal(createPersonViewController.navigationController)
+        )
     }
 }
